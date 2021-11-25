@@ -8,19 +8,11 @@ export default function Home() {
 
     const getNoticesAction = useSelector((state) => state.noticias);
     
-    useEffect(() => {
-        dispatch(getNotices());
-        handleRender();
-    },[]);
-
-    function handleRender(){
-      if (getNoticesAction.length > 0) {
-        return( console.log(getNoticesAction))}}
-
 
     const handleClick = (e) => {
       e.preventDefault();
       dispatch(getNotices());
+      // console.log(getNoticesAction);  
     };
 
 
@@ -28,6 +20,9 @@ export default function Home() {
     <div>
       <h1>Home</h1>
       <button onClick={handleClick}>Get Notices</button>
+      <li>
+        {getNoticesAction?.map((data) => <li><a href={data.url}>{data.title}</a></li>)}
+      </li>
     </div>
   );
 }

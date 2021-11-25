@@ -6,7 +6,7 @@ export function getNotices(payload){
       const response = await axios.get(`https://climatechangelive1.herokuapp.com/news`);
       dispatch({
         type: "GET_NOTICES",
-        payload: response,
+        payload: response.data,
       });
     };
   }

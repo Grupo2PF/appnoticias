@@ -7,7 +7,7 @@ export default function rootReducer(state = initialState, action) {
         case "GET_NOTICES":
             return {
                 ...state,
-                noticias: action.payload.noticias,
+                noticias: action.payload,
             }
         default:
             return state;
